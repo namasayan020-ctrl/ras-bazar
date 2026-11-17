@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAS BAZAR - Customer Marketplace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-card { background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-orange-500 selection:text-slate-950">
+
+    <!-- Top Header -->
+    <header class="w-full p-4 flex items-center justify-between border-b border-slate-800/80 bg-slate-900/50 backdrop-blur-md sticky top-0 z-50">
+        <div class="flex items-center space-x-3">
+            <a href="index.html" class="w-9 h-9 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-300 font-bold hover:bg-slate-700 transition-colors">←</a>
+            <div>
+                <h1 class="text-sm font-extrabold tracking-tight text-white">RAS BAZAR</h1>
+                <p class="text-[10px] text-amber-400 font-bold uppercase tracking-wider">● Marketplace Live</p>
+            </div>
+        </div>
+        <button onclick="toggleCart()" class="relative px-3 py-1.5 rounded-xl text-xs font-extrabold bg-amber-500 text-slate-950 flex items-center space-x-1.5 shadow-lg shadow-amber-500/20">
+            <span>🛍️ Cart</span>
+            <span id="cartCount" class="w-5 h-5 rounded-full bg-slate-950 text-amber-400 text-[10px] flex items-center justify-center font-black">0</span>
+        </button>
+    </header>
+
+    <!-- Main Marketplace Content -->
+    <main class="flex-1 w-full max-w-md mx-auto px-4 py-6 space-y-6">
+        
+        <!-- Search & Category Bar -->
+        <div class="space-y-3">
+            <div class="relative">
+                <input type="text" placeholder="Search vegetables, milk, grocery..." class="w-full bg-slate-900 border border-slate-800 rounded-2xl px-4 py-3 pl-10 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition-colors">
+                <span class="absolute left-3.5 top-3.5 text-slate-500 text-sm">🔍</span>
+            </div>
+            
+            <div class="flex space-x-2 overflow-x-auto pb-1 no-scrollbar">
+                <button class="px-4 py-2 rounded-xl text-xs font-bold bg-amber-500 text-slate-950 shrink-0">All Items</button>
+                <button class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-slate-400 border border-slate-800 shrink-0">Grocery</button>
+                <button class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-slate-400 border border-slate-800 shrink-0">Vegetables</button>
+                <button class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-slate-400 border border-slate-800 shrink-0">Dairy</button>
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="space-y-3">
+            <h2 class="text-xs font-black uppercase tracking-widest text-slate-400">Available Fresh Stock</h2>
+            
+            <div class="grid grid-cols-2 gap-3">
+                <!-- Product Card 1 -->
+                <div class="glass-card p-3.5 rounded-3xl flex flex-col justify-between space-y-3">
+                    <div class="w-full h-24 rounded-2xl bg-slate-900 flex items-center justify-center text-3xl">🍅</div>
+                    <div>
+                        <h4 class="text-xs font-bold text-white line-clamp-1">Farm Fresh Tomatoes</h4>
+                        <p class="text-[10px] text-slate-400">1 kg</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-2 border-t border-slate-800/80">
+                        <span class="text-xs font-black text-amber-400">₹45</span>
+                        <button onclick="addToCart('Farm Fresh Tomatoes', 45)" class="px-3 py-1.5 rounded-xl text-xs font-extrabold bg-amber-500/10 text-amber-400 border border-amber-500/30 hover:bg-amber-500 hover:text-slate-950 transition-all">＋ Add</button>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="glass-card p-3.5 rounded-3xl flex flex-col justify-between space-y-3">
+                    <div class="w-full h-24 rounded-2xl bg-slate-900 flex items-center justify-center text-3xl">🥛</div>
+                    <div>
+                        <h4 class="text-xs font-bold text-white line-clamp-1">Whole Milk Pack</h4>
+                        <p class="text-[10px] text-slate-400">500 ml</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-2 border-t border-slate-800/80">
+                        <span class="text-xs font-black text-amber-400">₹30</span>
+                        <button onclick="addToCart('Whole Milk Pack', 30)" class="px-3 py-1.5 rounded-xl text-xs font-extrabold bg-amber-500/10 text-amber-400 border border-amber-500/30 hover:bg-amber-500 hover:text-slate-950 transition-all">＋ Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-4 px-4 text-center border-t border-slate-900 bg-slate-950">
+        <p class="text-[11px] text-slate-500 font-medium">RAS BAZAR Customer Portal v1.0</p>
+    </footer>
+
+    <script>
+        let cartCount = 0;
+        function addToCart(itemName, price) {
+            cartCount++;
+            document.getElementById('cartCount').innerText = cartCount;
+            alert(itemName + ' added to cart!');
+        }
+        function toggleCart() {
+            alert('Cart Drawer: ' + cartCount + ' items selected.');
+        }
+    </script>
+</body>
+</html>
