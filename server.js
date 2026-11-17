@@ -18,7 +18,7 @@ const io = new Server(server, {
 });
 
 // MongoDB Connection (Render par env variable ya direct string daal sakte ho)
-const MONGO_URI = process.env.MONGO_URI || "YAHAN_APNA_MONGODB_CONNECTION_URL_DAAL_DENA";
+const MONGO_URI = process.env.MONGO_URI || "mongodb+srv://namasayan020_db_user:1Hd6Fj99yEk13NVM@cluster0.d0k9xal.mongodb.net/";
 
 mongoose.connect(MONGO_URI)
     .then(() => console.log('MongoDB Connected Successfully!'))
