@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAS BAZAR - Shop Owner Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-card { background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-orange-500 selection:text-slate-950">
+
+    <!-- Top Header -->
+    <header class="w-full p-4 flex items-center justify-between border-b border-slate-800/80 bg-slate-900/50 backdrop-blur-md sticky top-0 z-50">
+        <div class="flex items-center space-x-3">
+            <a href="index.html" class="w-9 h-9 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-300 font-bold hover:bg-slate-700 transition-colors">←</a>
+            <div>
+                <h1 class="text-sm font-extrabold tracking-tight text-white">SHOP OWNER PORTAL</h1>
+                <p class="text-[10px] text-orange-400 font-bold uppercase tracking-wider">● Store Active</p>
+            </div>
+        </div>
+        <div class="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-widest bg-orange-500/10 text-orange-400 border border-orange-500/30">
+            Live Dashboard
+        </div>
+    </header>
+
+    <!-- Main Dashboard Content -->
+    <main class="flex-1 w-full max-w-md mx-auto px-4 py-6 space-y-6">
+        
+        <!-- Today's Quick Stats -->
+        <div class="grid grid-cols-2 gap-3">
+            <div class="glass-card p-4 rounded-2xl border-l-4 border-l-orange-500">
+                <p class="text-[11px] text-slate-400 font-bold uppercase">Today's Orders</p>
+                <h3 class="text-2xl font-black text-white mt-1">12</h3>
+            </div>
+            <div class="glass-card p-4 rounded-2xl border-l-4 border-l-emerald-500">
+                <p class="text-[11px] text-slate-400 font-bold uppercase">Total Revenue</p>
+                <h3 class="text-2xl font-black text-emerald-400 mt-1">₹1,850</h3>
+            </div>
+        </div>
+
+        <!-- Live Incoming Orders Section -->
+        <div class="space-y-3">
+            <div class="flex items-center justify-between">
+                <h2 class="text-xs font-black uppercase tracking-widest text-slate-400">Live Incoming Orders</h2>
+                <span class="w-2 h-2 rounded-full bg-orange-500 animate-ping"></span>
+            </div>
+
+            <!-- Order Card Example -->
+            <div class="glass-card p-4 rounded-3xl space-y-3 border border-orange-500/30">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                    <div>
+                        <span class="text-xs font-black text-orange-400">Order #104</span>
+                        <p class="text-xs text-slate-300 font-medium">Rahul Das (Customer)</p>
+                    </div>
+                    <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30">Pending Acceptance</span>
+                </div>
+
+                <div class="text-xs space-y-1 text-slate-300">
+                    <p class="flex justify-between"><span>2x Farm Fresh Tomatoes</span> <span class="font-bold text-white">₹90</span></p>
+                    <p class="flex justify-between"><span>1x Whole Milk (500ml)</span> <span class="font-bold text-white">₹30</span></p>
+                </div>
+
+                <div class="pt-2 border-t border-slate-800 flex items-center justify-between">
+                    <div>
+                        <p class="text-[10px] text-slate-400 uppercase">Grand Total</p>
+                        <p class="text-base font-black text-white">₹120</p>
+                    </div>
+                    <div class="flex space-x-2">
+                        <button onclick="alert('Order Rejected')" class="px-3 py-2 rounded-xl text-xs font-bold bg-rose-500/10 text-rose-400 border border-rose-500/20 hover:bg-rose-500 hover:text-white transition-all">Reject</button>
+                        <button onclick="alert('Order Accepted & Dispatched for Delivery!')" class="px-3 py-2 rounded-xl text-xs font-extrabold bg-orange-500 text-slate-950 hover:bg-orange-400 transition-all shadow-lg shadow-orange-500/25">Accept & Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Inventory Quick Actions -->
+        <div class="space-y-3">
+            <h2 class="text-xs font-black uppercase tracking-widest text-slate-400">Quick Inventory Status</h2>
+            <div class="glass-card p-4 rounded-3xl flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-xl">🍅</div>
+                    <div>
+                        <h4 class="text-sm font-bold text-white">Tomatoes (1 kg)</h4>
+                        <p class="text-[11px] text-emerald-400 font-semibold">In Stock • ₹45</p>
+                    </div>
+                </div>
+                <button class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700">Edit Stock</button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-4 px-4 text-center border-t border-slate-900 bg-slate-950">
+        <p class="text-[11px] text-slate-500 font-medium">RAS BAZAR Shop Control v1.0</p>
+    </footer>
+
+</body>
+</html>
